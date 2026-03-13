@@ -1,68 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --breakpoint-xs: 450px;
+  --breakpoint-tablet: 991px;
+
+  --animate-fadeUp: fadeUp .4s linear;
+  --animate-fadeDown: fadeDown .4s linear;
+
+  @keyframes fadeUp {
+    0% {
+      -webkit-transform: translateY(5rem);
+              transform: translateY(5rem);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opactiy: 1;
+    }
+  }
+
+  @keyframes fadeDown {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opactiy: 1;
+    }
+    100% {
+     -webkit-transform: translateY(5rem);
+              transform: translateY(5rem);
+      opactiy: 0; 
+    }
+  }
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --danger: #f01414;
+  --success: #20a020;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --primary-text: #130f40;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --background-hover: #27ae60;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  * {
+    @apply m-0 p-0 outline-none capitalize no-underline box-border transition duration-200 ease-linear font-["Poppins"]
   }
-  a:hover {
-    color: #747bff;
+  html {
+    @apply max-xs:text-[50%] max-tablet:text-[55%] text-[62.5%] overflow-x-hidden scroll-smooth scroll-pt-34
   }
-  button {
-    background-color: #f9f9f9;
+
+  html::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background-color: var(--background-hover);
+    border-radius: 5rem;
+  }
+  section {
+    @apply py-8 px-[9%] max-tablet:p-8;
+  }
+
+  .heading {
+    @apply pb-8 text-center;
+  }
+
+  .heading span {
+    font-family: 'Satisfy', cursive;
+    @apply text-[3rem] text-green-600;
+  }
+
+  .heading h3 {
+    @apply text-[3rem] text-[#130f40];
+  }
+
+  .danger {
+    @apply text-(--danger)!
+  }
+
+  .success {
+    @apply text-(--success)!
+  }
+
+  .btn {
+    @apply inline-block mt-4 cursor-pointer bg-(--background-hover) text-[1.7rem] text-white py-[.7rem] px-[1.8rem] rounded-lg hover:bg-(--primary-text) dark:hover:bg-white dark:hover:text-(--background-hover)
   }
 }

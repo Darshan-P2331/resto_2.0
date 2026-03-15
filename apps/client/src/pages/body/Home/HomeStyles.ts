@@ -15,7 +15,7 @@ export const IconsStyle = `flex items-center gap-8 p-8 bg-white rounded-lg shado
 export const IconTextStyle = `text-[1.7rem] text-(--primary-text) dark:text-white`;
 
 export const CategoryStyle = `gap-6 pb-20 grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]`;
-export const CategoryBoxStyle = `p-8 text-center rounded-lg bg-[#f7f7f7] hover:bg-(--background-hover) dark:bg-gray-800`
+export const CategoryBoxStyle = `p-8 text-center rounded-lg bg-[#f7f7f7] hover:bg-(--background-hover) dark:bg-gray-800 max-w-sm`
 export const CategoryTextStyle = `text-[1.8rem] text-(--primary-text) hover:text-white dark:text-white`
 
 export const CardContainerStyle = `grid grid-cols-[repeat(auto-fit, minmax(25rem, 1fr))] gap-6`;

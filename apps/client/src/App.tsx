@@ -1,21 +1,26 @@
 import { BrowserRouter } from "react-router";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
-import Header from "./components/header/Header";
+import Body from "./pages/body/Body";
+import Footer from "./pages/footer/Footer";
+import Header from "./pages/header/Header";
 import { ThemeProvider } from "./ThemeContext";
-import Footer from "./components/footer/Footer";
-import Body from "./components/Body/Body";
+import { DataProvider } from "./context/GlobalState";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider>
-        <div className="app dark:bg-black">
-          <Header />
-          <Body />
-          <Footer />
-        </div>
-      </ThemeProvider>
-    </BrowserRouter>
+    <DataProvider>
+      <BrowserRouter>
+        <ThemeProvider>
+          <div className="app dark:bg-black">
+            <Header />
+            <Body />
+            <Footer />
+            <ToastContainer position="bottom-right" />
+          </div>
+        </ThemeProvider>
+      </BrowserRouter>
+    </DataProvider>
   );
 }
 

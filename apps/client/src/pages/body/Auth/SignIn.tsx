@@ -1,9 +1,11 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router";
+import Message from "../../../components/Message";
 import {
   signInSchema,
   type SignInFormValues,
 } from "../../../utils/schema/authSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   AuthStyle,
   FormName,
@@ -12,8 +14,8 @@ import {
   InputStyle,
   LinkStyle,
 } from "./AuthStyle";
-import { Link } from "react-router";
-import Message from "../../../utils/Message";
+import Button from "../../../components/Button";
+import Input from "../../../components/Input";
 
 type Props = {};
 
@@ -46,31 +48,23 @@ export default function SignIn({}: Props) {
         className={FormStyle}
       >
         <h3 className={FormName}>login form</h3>
-        <div>
-          <input
-            {...register("email")}
-            placeholder="Email"
-            type="email"
-            className={InputStyle}
-          />
-          {errors.email && (
-            <Message variant="danger">{errors.email.message}</Message>
-          )}
-        </div>
-        <div>
-          <input
-            {...register("password")}
-            placeholder="Passworrd"
-            className={InputStyle}
-            type="password"
-          />
-          {errors.password && (
-            <Message variant="danger">{errors.password.message}</Message>
-          )}
-        </div>
-        <button type="submit" className="w-full mx-0 my-4 text-center btn">
+        <Input
+          placeholder="Email"
+          type="email"
+          register={register}
+          name="email"
+          error={errors.email?.message}
+        />
+        <Input
+          placeholder="Password"
+          type="password"
+          register={register}
+          name="password"
+          error={errors.password?.message}
+        />
+        <Button type="submit" className="w-full mx-0 my-4 text-center">
           log in
-        </button>
+        </Button>
         <p className={FormRefStyle}>
           forgot password?&nbsp;
           <Link to="/forgot_password" className={LinkStyle}>

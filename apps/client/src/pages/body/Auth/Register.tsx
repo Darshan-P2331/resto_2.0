@@ -1,19 +1,19 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router";
 import {
   type RegisterFormValues,
   registerSchema,
 } from "../../../utils/schema/authSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Message from "../../../utils/Message";
-import { Link } from "react-router";
 import {
   AuthStyle,
   FormName,
   FormRefStyle,
   FormStyle,
-  InputStyle,
   LinkStyle,
 } from "./AuthStyle";
+import Input from "../../../components/Input";
+import Button from "../../../components/Button";
 
 type Props = {};
 
@@ -48,52 +48,34 @@ export default function Register({}: Props) {
         className={FormStyle}
       >
         <h3 className={FormName}>Register form</h3>
-        <div>
-          <input
-            {...register("name")}
+        <Input
+            register={register}
+            name="name"
             placeholder="Name"
-            className={InputStyle}
+            error={errors.name?.message}
           />
-          {errors.name && (
-            <Message variant="danger">{errors.name.message}</Message>
-          )}
-        </div>
-        <div>
-          <input
-            {...register("email")}
+          <Input
+            register={register}
+            name="email"
             placeholder="Email"
             type="email"
-            className={InputStyle}
+            error={errors.email?.message}
           />
-          {errors.email && (
-            <Message variant="danger">{errors.email.message}</Message>
-          )}
-        </div>
-        <div>
-          <input
-            {...register("password")}
-            placeholder="Passworrd"
-            className={InputStyle}
+        <Input
+            register={register}
+            name="password"
+            placeholder="Password"
             type="password"
+            error={errors.password?.message}
           />
-          {errors.password && (
-            <Message variant="danger">{errors.password.message}</Message>
-          )}
-        </div>
-        <div>
-          <input
-            {...register("name")}
+        <Input
+            register={register}
+            name="confirmPassword"
             placeholder="Confirm Password"
-            className={InputStyle}
             type="password"
+            error={errors.confirmPassword?.message}
           />
-          {errors.confirmPassword && (
-            <Message variant="danger">{errors.confirmPassword.message}</Message>
-          )}
-        </div>
-        <button type="submit" className="w-full mx-0 my-4 text-center btn">
-          Register
-        </button>
+        <Button className="w-full mx-0 my-4 text-center" type="submit">Register</Button>
         <p className={FormRefStyle}>
           already have an account?&nbsp;
           <Link to="/signin" className={LinkStyle}>

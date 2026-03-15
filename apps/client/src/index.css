@@ -90,8 +90,4 @@
   .success {
     @apply text-(--success)!
   }
-
-  .btn {
-    @apply inline-block mt-4 cursor-pointer bg-(--background-hover) text-[1.7rem] text-white py-[.7rem] px-[1.8rem] rounded-lg hover:bg-(--primary-text) dark:hover:bg-white dark:hover:text-(--background-hover)
-  }
 }

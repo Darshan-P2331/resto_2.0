@@ -130,7 +130,7 @@ export default function Home({}: Props) {
       </section>
       <section className={CategoryStyle}>
         <div className={CategoryBoxStyle}>
-          <img src="" alt="" loading="lazy" className="h-28" />
+          <img src="https://res.cloudinary.com/dhtfc36hh/image/upload/v1634909100/Resto/category/w6y1vdh6avkch19vgz7v.png" alt="" loading="lazy" className="h-28 m-auto" />
           <h3 className={CategoryTextStyle}>All</h3>
         </div>
       </section>

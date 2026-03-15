@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cookieParser());
+  app.setGlobalPrefix('v1');
   const config = new DocumentBuilder()
     .setTitle('Resto')
     .setDescription('The resto API description')

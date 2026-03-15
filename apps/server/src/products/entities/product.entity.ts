@@ -10,6 +10,9 @@ export class Product {
   title: string;
 
   @Prop({ required: true, trim: true })
+  description: string;
+
+  @Prop({ required: true, trim: true })
   price: number;
 
   @Prop({ type: Object, required: true })
